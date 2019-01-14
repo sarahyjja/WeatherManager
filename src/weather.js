@@ -9,6 +9,6 @@ export class Weather {
     const store = await fetch(url);
     const data = await store.json();
     const temperature = data.list[0].main.temp;
-    return temperature;
+    return Math.round(temperature)+'\xB0C';
   }
 }
