@@ -9,4 +9,3 @@ export class Numbers {
     return numbers.map(number => this.addToNumber(number, 1));
   }
 }
-fffddd
