@@ -11,13 +11,13 @@ describe('weather', () => {
   it('get the temperature', async () => {
     const weather = new Weather();
     const temperature = await weather.temp();
-    expect(temperature).toEqual(8.45)
+    expect(temperature).toContain('°C')
   })
 
-  // it('calls endpoint for London', async () => {
-  //   const weather = new Weather();
-  //   expect(weather.temp().called).toEqual('https://api.openweathermap.org/data/2.5/find?q=London,UK&units=metric&appid=aa2bbdb63ce7c4d92703142f9e23bbf2')
-  // })
+  it('get 32 pieces of data', async () => {
+    const weather = new Weather();
+    const forecastData = await weather.forecast()
+    expect(forecastData.length).toEqual(32)
+  })
 
-  //it ('returns the weather', async () => {})
 });
