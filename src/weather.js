@@ -18,14 +18,10 @@ export class Weather {
     const dateInString = JSON.stringify(todayDate)
     const today = dateInString.substring(1, 11)
 
-    const url = 'https://api.openweathermap.org/data/2.5/forecast?q=London,UK&units=metric&appid='+process.env.API_KEY
-
-    const store = await fetch(url);
-    const data = await store.json();
-    const forecast = data.list;
+    const data = await this.apiCall.getForecast()
     let storageBox = [];
 
-     forecast.forEach((item) => {
+     data.forEach((item) => {
        if(!item.dt_txt.includes(today)){
          storageBox.push({
            temp: item.main.temp,

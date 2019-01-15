@@ -14,4 +14,10 @@ describe('api_call', () => {
     expect(typeof getTodayTemp).toEqual('number')
   })
 
+  it('get forecast', async () => {
+    const apiCall = new ApiCall();
+    const getForecast = await apiCall.getForecast()
+    expect(typeof getForecast).toContain('object')
+  })
+
 });

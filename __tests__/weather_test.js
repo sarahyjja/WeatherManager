@@ -19,7 +19,7 @@ describe('weather', () => {
     const forecastData = await weather.forecast()
     const rangeLength = [32, 33, 34, 35, 36, 37, 38, 39, 40]
     const forecastDataLength = forecastData.length
-
+    
     expect(rangeLength.includes(forecastDataLength)).toEqual(true)
   })
 
