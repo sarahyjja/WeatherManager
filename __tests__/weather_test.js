@@ -8,16 +8,28 @@ describe('weather', () => {
     expect(weather instanceof Weather).toEqual(true);
   });
 
-  it('get the temperature', async () => {
+  it('get the temperature of today', async () => {
     const weather = new Weather();
-    const temperature = await weather.temp();
-    expect(temperature).toContain('°C')
+    const temp = await weather.todayTemperature();
+    expect(temp).toContain('°C')
   })
 
-  it('get 32 pieces of data', async () => {
+  it('get a range of data in between 32 to 40', async () => {
     const weather = new Weather();
     const forecastData = await weather.forecast()
-    expect(forecastData.length).toEqual(32)
+    const rangeLength = [32, 33, 34, 35, 36, 37, 38, 39, 40]
+    const forecastDataLength = forecastData.length
+
+    expect(rangeLength.includes(forecastDataLength)).toEqual(true)
   })
+
+
+  // it('get the date/time from the storageBox', async () => {
+  //   const weather = new Weather();
+  //   const forecastData = await weather.forecast()
+  //   const dateTime = await
+  //
+  // })
+  //
 
 });
