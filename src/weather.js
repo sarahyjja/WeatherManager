@@ -1,15 +1,16 @@
 const fetch = require("node-fetch");
 require('dotenv').config();
+import { ApiCall } from './api_call'
 
 export class Weather {
 
-  async todayTemperature(){
-    const url = 'https://api.openweathermap.org/data/2.5/find?q=London,UK&units=metric&appid='+process.env.API_KEY
+  constructor(){
+    this.apiCall = new ApiCall()
 
-    const store = await fetch(url);
-    const data = await store.json();
-    const temp = data.list[0].main.temp;
-    return Math.round(temp)+'\xB0C';
+  }
+  async todayTemperature(){
+    const data = await this.apiCall.getTodayTemperature()
+    return Math.round(data)+'\xB0C';
   }
 
   async forecast(){
@@ -33,16 +34,7 @@ export class Weather {
          })
        }
     })
-    console.log(storageBox)
+    //console.log(storageBox)
     return storageBox;
   }
-
-  // async extractLastObjectJsonFile(){
-  //
-  // }
-  //
-  // async date(){
-  //   const allDates = new Date("2019-01-15 12:00:00")
-  //
-  // }
 }

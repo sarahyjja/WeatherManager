@@ -24,12 +24,4 @@ describe('weather', () => {
   })
 
 
-  // it('get the date/time from the storageBox', async () => {
-  //   const weather = new Weather();
-  //   const forecastData = await weather.forecast()
-  //   const dateTime = await
-  //
-  // })
-  //
-
 });
