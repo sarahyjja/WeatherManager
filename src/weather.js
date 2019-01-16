@@ -24,7 +24,7 @@ export class Weather {
      data.forEach((item) => {
        if(!item.dt_txt.includes(today)){
          storageBox.push({
-           temp: item.main.temp,
+           temp: Math.round(item.main.temp)+'\xB0C',
            description: item.weather[0].description,
            dt_txt: item.dt_txt,
          })

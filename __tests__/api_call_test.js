@@ -17,7 +17,7 @@ describe('api_call', () => {
   it('get forecast', async () => {
     const apiCall = new ApiCall();
     const getForecast = await apiCall.getForecast()
-    expect(typeof getForecast).toContain('object')
+    expect(getForecast.length).toEqual(40)
   })
 
 });
